@@ -1,0 +1,40 @@
+{
+  "name": "gulp-letters",
+  "version": "1.0.0",
+  "description": "Gulp tasks for easy letter styling development",
+  "main": "index.js",
+  "directories": {
+    "example": "example",
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "gulp": "gulp",
+    "test": "node test",
+    "oldtest": "gulp --cwd test send -n 'test1, test2'",
+    "preversion": "git pull origin master",
+    "postversion": "git push origin master --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreymaznyak/gulp-letters.git"
+  },
+  "author": "<Andrey Maznyak> andreymaznyak@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreymaznyak/gulp-letters/issues"
+  },
+  "homepage": "https://github.com/andreymaznyak/gulp-letters#readme",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "del": "^3.0.0",
+    "gulp": "4.0.0",
+    "gulp-ext-replace": "^0.3.0",
+    "gulp-inline-css": "^3.1.2",
+    "gulp-pug": "^3.3.0",
+    "gulp-sass": "^3.1.0",
+    "maildev": "^1.0.0-rc3",
+    "nodemailer": "^4.4.2",
+    "tap": "^11.1.0"
+  }
+}
