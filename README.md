@@ -2,6 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/andreymaznyak/gulp-letters.svg)](https://greenkeeper.io/)
 [![Build status](https://travis-ci.org/andreymaznyak/gulp-letters.svg?branch=master)](https://travis-ci.org/andreymaznyak/gulp-letters)
+[![coverage](https://codecov.io/gh/andreymaznyak/gulp-letters/branch/master/graph/badge.svg)](https://codecov.io/gh/andreymaznyak/gulp-letters)  
 
 \* Read this in other languages: [English](README.md), [Русский](README.ru.md),
 
