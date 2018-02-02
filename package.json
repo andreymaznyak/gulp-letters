@@ -1,6 +1,6 @@
 {
   "name": "gulp-letters",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Gulp tasks for easy letter styling development",
   "main": "index.js",
   "directories": {
@@ -15,8 +15,7 @@
     "test-ci": "tap test/index.js --coverage-report=lcov && codecov",
     "gulp-test": "gulp  --cwd test",
     "preversion": "git pull origin master && npm run test",
-    "report-coverage":
-      "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "postversion": "git push origin master --tags && npm publish ."
   },
   "repository": {
