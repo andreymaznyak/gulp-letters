@@ -8,9 +8,17 @@ const exists = promisify(fs.exists);
 const readFile = promisify(fs.readFile);
 
 const letters = ['test1', 'test2'];
-const lettersNames = letters.reduce(
+const lettersNames = ` -n "${letters.reduce(
   (res, letterName) => (res += ',' + letterName)
-);
+)}"`;
+
+tap.test('after call `new` task without name', async t => {
+  await t.rejects(startGulpTask('new', '').close(), `should throw error`);
+});
+
+tap.test('after call `new` task with empty names', async t => {
+  await t.rejects(startGulpTask('new', '-n ').close(), `should throw error`);
+});
 
 tap.test('after call `new` task', async t => {
   await startGulpTask('new', lettersNames).close();
@@ -112,6 +120,23 @@ tap.test(`after call 'clean' task`, async t => {
   );
 });
 
+tap.test(`after call 'build' task without -n param`, async t => {
+  await startGulpTask('build', '').close();
+  await all(
+    letters.map(async letterName => {
+      const templatePath = join(__dirname, 'dev', letterName + '.html');
+      const templateExist = await exists(templatePath);
+      t.ok(templateExist, `${letterName} template should be compiled`);
+      const stylePath = join(__dirname, 'dev', 'css', letterName + '.css');
+      const styleExist = await exists(stylePath);
+      t.ok(styleExist, `${letterName} style should be compiled`);
+      const modulePath = join(__dirname, 'dist', letterName + '.js');
+      const moduleExist = await exists(modulePath);
+      t.ok(moduleExist, `${letterName} module should be compiled`);
+    })
+  );
+});
+
 tap.test(`after call 'remove' task`, async t => {
   await startGulpTask('remove', lettersNames).close();
 
@@ -171,9 +196,10 @@ function getMockSmtp() {
 function startGulpTask(taskName, lettersNames, timeout = 20000) {
   const process = spawn('sh', [
     '-c',
-    `yarn gulp --cwd test ${taskName} -n "${lettersNames}"`
+    `yarn gulp --cwd test ${taskName} ${lettersNames}`
   ]);
-
+  let errors = '';
+  process.stderr.on('data', data => (errors += data));
   return {
     process,
     close() {
