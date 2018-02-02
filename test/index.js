@@ -29,12 +29,6 @@ tap.test('after call `new` task', async t => {
 tap.test('after call `serve` task', async t => {
   const gulpTask = startGulpTask('serve', lettersNames);
 
-  const compiledFiles = await all(
-    letters.map(letterName => {
-      return readFile(join(__dirname, 'dev', letterName + '.html'), 'utf-8');
-    })
-  );
-  t.ok(compiledFiles, `pug templates should be compiled`);
   const responses = await new Promise((res, rej) => {
     const hosts = [];
     gulpTask.onStdoutMessage(/http:\/\/localhost:\d\d\d\d/, host => {
@@ -48,6 +42,13 @@ tap.test('after call `serve` task', async t => {
     return all(hosts.map(async host => rp.get(host)));
   });
   t.ok(responses, `web server should be start and return compiled files`);
+  const compiledFiles = await all(
+    letters.map(letterName => {
+      return readFile(join(__dirname, 'dev', letterName + '.html'), 'utf-8');
+    })
+  );
+  t.ok(compiledFiles, `pug templates should be compiled`);
+
   gulpTask.process.kill(); // kill serve process after fetch responses
   compiledFiles.forEach(content => {
     const found = responses.find(response => response === content);
