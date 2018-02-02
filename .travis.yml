@@ -2,6 +2,6 @@ language: node_js
 node_js:
   - 8.4.0
 install:
-  - npm install -g codecov
+  - yarn && npm install -g codecov
 script:
   - yarn test-ci
