@@ -2,7 +2,7 @@ var gulp = require('gulp');
 // include default tasks registrator
 var registerTasks = require('gulp-letters').registerTasks;
 // define smtp config
-var mailsConfig = {
+var smtpOptions = {
   // nodemailer smtp settings
   smtpServerConfig: {
     host: 'localhost', // smtp server host
@@ -21,7 +21,7 @@ var mailsConfig = {
 };
 
 // register default tasks
-registerTasks(mailsConfig, [
+registerTasks({ smtpOptions }, [
   'new',
   'serve',
   'build',

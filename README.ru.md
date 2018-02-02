@@ -51,7 +51,7 @@ var mailsConfig = {
 };
 
 // register default tasks
-registerTasks(mailsConfig, [
+registerTasks({ smtpOptions }, [
   'new',
   'serve',
   'build',
