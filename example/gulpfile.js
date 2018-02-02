@@ -1,16 +1,3 @@
-# Gulp letter
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/andreymaznyak/gulp-letters.svg)](https://greenkeeper.io/)
-
-\* Read this in other languages: [English](README.md), [Русский](README.ru.md),
-
-Gulp tasks for easy letter styling development
-
-Features:
-
-Usage in gulp file:
-
-```javascript
 var gulp = require('gulp');
 // include default tasks registrator
 var registerTasks = require('gulp-letters').registerTasks;
@@ -44,4 +31,3 @@ registerTasks(mailsConfig, [
 ]);
 // define default gulp task
 gulp.task('default', gulp.series(['build']));
-```

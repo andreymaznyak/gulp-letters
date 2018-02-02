@@ -51,7 +51,14 @@ var mailsConfig = {
 };
 
 // register default tasks
-registerTasks(mailsConfig, ['new', 'serve', 'build', 'send']);
+registerTasks(mailsConfig, [
+  'new',
+  'serve',
+  'build',
+  'send',
+  'clean',
+  'remove'
+]);
 // define default gulp task
 gulp.task('default', gulp.series(['build']));
 ```
