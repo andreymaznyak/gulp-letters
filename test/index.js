@@ -1,69 +1,206 @@
 const tap = require('tap');
-const { spawn } = require('child_process');
+const rp = require('request-promise');
+const { spawn, fork } = require('child_process');
 const fs = require('fs');
 const { promisify } = require('util');
 const { join } = require('path');
 const exists = promisify(fs.exists);
-// const MockSmtpServer = require('./mock-smtp').MockSmtpServer;
-// const mailsConfig = require('./mails-config');
-// const smtpServer = new MockSmtpServer(mailsConfig);
-// setTimeout(() => smtpServer.close(), 5000);
+const readFile = promisify(fs.readFile);
 
-const lettersNamesArr = ['test1', 'test2'];
-const lettersNames = lettersNamesArr.reduce(
+const letters = ['test1', 'test2'];
+const lettersNames = letters.reduce(
   (res, letterName) => (res += ',' + letterName)
 );
 
-tap.test(
-  'after call `new` task pug file and sass file should be exists',
-  async t => {
-    await startGulpTask('new', lettersNames);
-    const results = await Promise.all(
-      lettersNamesArr.map(letterName => {
-        return Promise.all([
-          exists(join(__dirname, 'src', letterName + '.pug')),
-          exists(join(__dirname, 'src', 'sass', letterName + '.sass'))
-        ]);
-      })
-    );
+tap.test('after call `new` task', async t => {
+  await startGulpTask('new', lettersNames).close();
+  await all(
+    letters.map(async letterName => {
+      const templateFilePath = join(__dirname, 'src', letterName + '.pug');
+      const templateExist = await exists(templateFilePath);
+      t.ok(templateExist, `${letterName} template should be created`);
+      const stylePath = join(__dirname, 'src', 'sass', letterName + '.sass');
+      const styleExist = await exists(stylePath);
+      t.ok(styleExist, `${letterName} style should be created`);
+    })
+  );
+});
 
-    const AllfileExists = results.indexOf(false) < 0;
-    t.equals(AllfileExists, true); // все файлы должны быть созданы
-  }
-);
+tap.test('after call `serve` task', async t => {
+  const gulpTask = startGulpTask('serve', lettersNames);
 
-tap.test(
-  `after call 'remove' task pug file and sass file should be removed`,
-  async t => {
-    await startGulpTask('remove', lettersNames);
-    const results = await Promise.all(
-      lettersNamesArr.map(letterName => {
-        return Promise.all([
-          exists(join(__dirname, 'src', letterName + '.pug')),
-          exists(join(__dirname, 'src', 'sass', letterName + '.sass'))
-        ]);
-      })
-    );
-
-    const foundExistFile = results.indexOf(true) >= 0;
-    t.equals(foundExistFile, false); // Все файлы должны быть удалены
-  }
-);
-function startGulpTask(taskName, lettersNames) {
-  return new Promise((res, rej) => {
-    const gulpProcces = spawn('sh', [
-      '-c',
-      `yarn gulp --cwd test ${taskName} -n "${lettersNames}"`
-    ]);
-    // gulpProcces.stdout.pipe(process.stdout);
-    // gulpProcces.stdio.pipe(process.stdio);
-    // gulpProcces.stderr.pipe(process.stderr);
-    gulpProcces.on('close', function(exitCode) {
-      if (exitCode === 0) {
-        res();
-      } else {
-        rej('process closes with exit code: ' + exitCode);
+  const compiledFiles = await all(
+    letters.map(letterName => {
+      return readFile(join(__dirname, 'dev', letterName + '.html'), 'utf-8');
+    })
+  );
+  t.ok(compiledFiles, `pug templates should be compiled`);
+  const responses = await new Promise((res, rej) => {
+    const hosts = [];
+    gulpTask.onStdoutMessage(/http:\/\/localhost:\d\d\d\d/, host => {
+      hosts.push(host);
+      if (hosts.length === letters.length) {
+        // check hosts responses
+        res(hosts);
       }
     });
+  }).then(hosts => {
+    return all(hosts.map(async host => rp.get(host)));
   });
+  t.ok(responses, `web server should be start and return compiled files`);
+  gulpTask.process.kill(); // kill serve process after fetch responses
+  compiledFiles.forEach(content => {
+    const found = responses.find(response => response === content);
+    t.same(found, content, 'compiled file and returned should be same');
+  });
+});
+
+tap.test(`after call 'build' task`, async t => {
+  await startGulpTask('build', lettersNames).close();
+  await all(
+    letters.map(async letterName => {
+      const templatePath = join(__dirname, 'dev', letterName + '.html');
+      const templateExist = await exists(templatePath);
+      t.ok(templateExist, `${letterName} template should be compiled`);
+      const stylePath = join(__dirname, 'dev', 'css', letterName + '.css');
+      const styleExist = await exists(stylePath);
+      t.ok(styleExist, `${letterName} style should be compiled`);
+      const modulePath = join(__dirname, 'dist', letterName + '.js');
+      const moduleExist = await exists(modulePath);
+      t.ok(moduleExist, `${letterName} module should be compiled`);
+    })
+  );
+});
+
+tap.test(`after call 'send' task`, async t => {
+  const smtp = getMockSmtp();
+  await smtp.start();
+  await startGulpTask('send', lettersNames).close();
+  await all(
+    letters.map(async letterName => {
+      const templatePath = join(__dirname, 'dev', letterName + '.html');
+      const templateExist = await exists(templatePath);
+      t.ok(templateExist, `${letterName} template should be compiled`);
+      const stylePath = join(__dirname, 'dev', 'css', letterName + '.css');
+      const styleExist = await exists(stylePath);
+      t.ok(styleExist, `${letterName} style should be compiled`);
+      const modulePath = join(__dirname, 'dist', letterName + '.js');
+      const moduleExist = await exists(modulePath);
+      t.ok(moduleExist, `${letterName} module should be compiled`);
+    })
+  );
+  const length = smtp.getMails().length;
+  t.equals(length, letters.length, ` mails should be recieved`);
+  smtp.process.kill();
+});
+
+tap.test(`after call 'clean' task`, async t => {
+  await startGulpTask('clean', lettersNames).close();
+  await all(
+    letters.map(async letterName => {
+      const templatePath = join(__dirname, 'dev', letterName + '.html');
+      const templateExist = await exists(templatePath);
+      t.notOk(templateExist, `${letterName} template should be removed`);
+      const stylePath = join(__dirname, 'dev', 'css', letterName + '.css');
+      const styleExist = await exists(stylePath);
+      t.notOk(styleExist, `${letterName} style should be removed`);
+      const modulePath = join(__dirname, 'dist', letterName + '.js');
+      const moduleExist = await exists(modulePath);
+      t.notOk(moduleExist, `${letterName} module should be removed`);
+    })
+  );
+});
+
+tap.test(`after call 'remove' task`, async t => {
+  await startGulpTask('remove', lettersNames).close();
+
+  await all(
+    letters.map(async letterName => {
+      const templateFilePath = join(__dirname, 'src', letterName + '.pug');
+      const templateExist = await exists(templateFilePath);
+      t.notOk(templateExist, `${letterName} template should be removed`);
+      const stylePath = join(__dirname, 'src', 'sass', letterName + '.sass');
+      const styleExist = await exists(stylePath);
+      t.notOk(styleExist, `${letterName} style should be removed`);
+    })
+  );
+});
+
+/**
+ * Return promise all
+ * @param {Array} arr of promises
+ */
+function all(arr) {
+  return Promise.all(arr);
+}
+
+/**
+ * Т.к server.close не работает приходится запускать его в отдельном процессе
+ * что бы потом его можно было убить
+ */
+function getMockSmtp() {
+  const process = fork(`${__dirname}/mock-smtp.js`);
+  const mails = [];
+  process.on('message', message => {
+    if (message && message.type === 'new') {
+      mails.push(message.email);
+    }
+  });
+  return {
+    process,
+    start(timeout = 1000) {
+      return new Promise((res, rej) => {
+        const timerId = setTimeout(() => {
+          rej(new Error('handle mails timeout ' + timeout + 'ms'));
+        }, timeout);
+        process.on('message', message => {
+          if (message && message.type === 'start') {
+            clearTimeout(timerId);
+            res();
+          }
+        });
+      });
+    },
+    getMails() {
+      return mails;
+    }
+  };
+}
+
+function startGulpTask(taskName, lettersNames, timeout = 20000) {
+  const process = spawn('sh', [
+    '-c',
+    `yarn gulp --cwd test ${taskName} -n "${lettersNames}"`
+  ]);
+
+  return {
+    process,
+    close() {
+      return new Promise((res, rej) => {
+        process.on('close', function(exitCode) {
+          if (exitCode === 0 || exitCode === null) {
+            // console.log(`CLOSE proccess ${taskName}`);
+            res();
+          } else {
+            rej(new Error('process closes with exit code: ' + exitCode));
+          }
+        });
+      });
+    },
+    onStdoutMessage(regexp, fn) {
+      process.stdout.on('data', data => {
+        const consoleOutput = data.toString();
+        const foundMessage = consoleOutput.match(regexp);
+        if (!!foundMessage) {
+          fn(foundMessage[0]);
+        }
+      });
+    },
+    wait(ms) {
+      return new Promise((res, rej) => setTimeout(res, ms));
+    }
+  };
+  // return new Promise((res, rej) => {
+
+  // });
 }

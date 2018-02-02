@@ -25,7 +25,7 @@
     "url": "https://github.com/andreymaznyak/gulp-letters/issues"
   },
   "homepage": "https://github.com/andreymaznyak/gulp-letters#readme",
-  "devDependencies": {
+  "dependencies": {
     "browser-sync": "^2.23.6",
     "del": "^3.0.0",
     "gulp": "4.0.0",
@@ -34,7 +34,11 @@
     "gulp-pug": "^3.3.0",
     "gulp-sass": "^3.1.0",
     "maildev": "^1.0.0-rc3",
-    "nodemailer": "^4.4.2",
+    "nodemailer": "^4.4.2"
+  },
+  "devDependencies": {
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
     "tap": "^11.1.0"
   }
 }

@@ -1,22 +1,19 @@
-const { spawn } = require('child_process');
-
-const childProcessCode = `
-    const MailDev = require('maildev');
-    const mailsConfig = require('./test/mails-config');
-    const maildev = new MailDev({
-        smtp: mailsConfig.smtpServerConfig.port // incoming SMTP port - default is 1025
-    });
-    maildev.listen();
-`;
+const MailDev = require('maildev');
+const mailsConfig = require('./mails-config');
 
 function MockSmtpServer(config) {
-  const subprocess = spawn('sh', ['-c', `node -e "${childProcessCode}"`], {
-    stdio: ['inherit', 'inherit', 'inherit']
+  const maildev = new MailDev({
+    smtp: mailsConfig.smtpServerConfig.port, // incoming SMTP port - default is 1025
+    silent: true
   });
-  return {
-    close: () => {
-      subprocess.kill();
-    }
-  };
+  return maildev;
 }
+const mockSmtpInstance = new MockSmtpServer(mailsConfig);
+mockSmtpInstance.listen(() => {
+  process.send({ type: 'start' });
+});
+mockSmtpInstance.on('new', email => {
+  process.send({ type: 'new', email });
+});
+
 module.exports = { MockSmtpServer };
