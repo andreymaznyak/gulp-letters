@@ -1,5 +1,7 @@
 # Gulp letter
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/andreymaznyak/gulp-letters.svg)](https://greenkeeper.io/)
+
 \* Read this in other languages: [English](README.md), [Русский](README.ru.md),
 
 Gulp tasks for easy letter styling development
