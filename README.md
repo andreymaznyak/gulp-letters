@@ -47,3 +47,5 @@ registerTasks({ smtpOptions }, [
 // define default gulp task
 gulp.task('default', gulp.series(['build']));
 ```
+
+.
