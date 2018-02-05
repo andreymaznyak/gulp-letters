@@ -27,11 +27,11 @@
 Usage in gulp file:
 
 ```javascript
-var gulp = require('gulp');
+const gulp = require('gulp');
 // Подключаем функцию которая зарегистрирует стандартные gulp задачи
-var registerTasks = require('gulp-letters').registerTasks;
+const registerTasks = require('gulp-letters').registerTasks;
 // Нужно определить настройки smtp для тестовой отправки писем
-var mailsConfig = {
+const smtpOptions = {
   // smtp настройки библиотеки nodemailer
   smtpServerConfig: {
     host: 'localhost',

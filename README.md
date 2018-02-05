@@ -2,7 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/andreymaznyak/gulp-letters.svg)](https://greenkeeper.io/)
 [![Build status](https://travis-ci.org/andreymaznyak/gulp-letters.svg?branch=master)](https://travis-ci.org/andreymaznyak/gulp-letters)
-[![coverage](https://codecov.io/gh/andreymaznyak/gulp-letters/branch/master/graph/badge.svg)](https://codecov.io/gh/andreymaznyak/gulp-letters)  
+[![coverage](https://codecov.io/gh/andreymaznyak/gulp-letters/branch/master/graph/badge.svg)](https://codecov.io/gh/andreymaznyak/gulp-letters)
 
 \* Read this in other languages: [English](README.md), [Русский](README.ru.md),
 
@@ -13,11 +13,11 @@ Features:
 Usage in gulp file:
 
 ```javascript
-var gulp = require('gulp');
+const gulp = require('gulp');
 // include default tasks registrator
-var registerTasks = require('gulp-letters').registerTasks;
+const registerTasks = require('gulp-letters').registerTasks;
 // define smtp config
-var smtpOptions = {
+const smtpOptions = {
   // nodemailer smtp settings
   smtpServerConfig: {
     host: 'localhost', // smtp server host
