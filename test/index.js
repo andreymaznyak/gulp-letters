@@ -7,6 +7,8 @@ const { join } = require('path');
 const exists = promisify(fs.exists);
 const readFile = promisify(fs.readFile);
 
+const smtpOptions = require('./mails-config');
+
 const letters = ['test1', 'test2'];
 const lettersNames = ` -n "${letters.reduce(
   (res, letterName) => (res += ',' + letterName)
@@ -122,10 +124,10 @@ tap.test(`after call 'clean' task`, async t => {
 
 tap.test(`after call 'build' task without -n param`, async t => {
   await startGulpTask('build', '').close();
-  await all(
-    letters.map(async letterName => {
+  await all([
+    ...letters.map(async letterName => {
       const templatePath = join(__dirname, 'dev', letterName + '.html');
-      const templateExist = await exists(templatePath);
+      const templateExist = await exists(templatePath, 'utf-8');
       t.ok(templateExist, `${letterName} template should be compiled`);
       const stylePath = join(__dirname, 'dev', 'css', letterName + '.css');
       const styleExist = await exists(stylePath);
@@ -133,6 +135,32 @@ tap.test(`after call 'build' task without -n param`, async t => {
       const modulePath = join(__dirname, 'dist', letterName + '.js');
       const moduleExist = await exists(modulePath);
       t.ok(moduleExist, `${letterName} module should be compiled`);
+    }),
+    async () => {
+      const templatePath = join(__dirname, 'dev', 'example-letter.html');
+      const variable = smtpOptions.params['default'].testKey;
+      const template = await readFile(templatePath, 'utf-8');
+      t.ok(
+        template.indexOf(variable) >= 0,
+        `template should be contains pug params`
+      );
+    }
+  ]);
+});
+
+tap.test(`after call 'clean' task without -n param`, async t => {
+  await startGulpTask('clean', '').close();
+  await all(
+    letters.map(async letterName => {
+      const templatePath = join(__dirname, 'dev', letterName + '.html');
+      const templateExist = await exists(templatePath);
+      t.notOk(templateExist, `${letterName} template should be removed`);
+      const stylePath = join(__dirname, 'dev', 'css', letterName + '.css');
+      const styleExist = await exists(stylePath);
+      t.notOk(styleExist, `${letterName} style should be removed`);
+      const modulePath = join(__dirname, 'dist', letterName + '.js');
+      const moduleExist = await exists(modulePath);
+      t.notOk(moduleExist, `${letterName} module should be removed`);
     })
   );
 });

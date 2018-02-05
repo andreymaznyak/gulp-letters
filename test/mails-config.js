@@ -14,5 +14,9 @@ module.exports = {
       subject: 'This is new message ✉️'
     }
   },
-  params: {}
+  params: {
+    default: {
+      testKey: 'paramValueForTest'
+    }
+  }
 };
