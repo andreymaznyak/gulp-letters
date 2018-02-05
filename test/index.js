@@ -202,7 +202,7 @@ function getMockSmtp() {
   });
   return {
     process,
-    start(timeout = 1000) {
+    start(timeout = 5000) {
       return new Promise((res, rej) => {
         const timerId = setTimeout(() => {
           rej(new Error('handle mails timeout ' + timeout + 'ms'));
