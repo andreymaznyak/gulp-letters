@@ -39,7 +39,7 @@ Live Preview в браузере, отправка писем на почту, �
 #### Конвертация .pug и .sass в html и css
 При использовании команды  `gulp serve -n <имя файла>`  gulp-letters автоматически создаст папку dev/ и положит в нее конвертированные из . Pug и .sass и файлы .html и .css.
 
-![](Gulp%20Letters/2018-02-07%2015.53.21.gif)
+![](https://1.downloader.disk.yandex.ru/disk/7c66857c18422903245e3731d481f6455960f9488f1ec4e5e9c8d1b409ec2937/5a7ae659/2ARVim4y-a6CucIAG6v67F3DMmsByVSJ-JqHwD-57CsMXdIkIv4w4YCOropc4xt7eU8hs7E7FxWX6zZvOhVTlw%3D%3D?uid=0&filename=2018-02-07%2015.53.21.gif&disposition=inline&hash=&limit=0&content_type=image%2Fgif&fsize=154337&hid=1e5801ca789854d808dd450ff1d08c90&media_type=image&tknv=v2&etag=857ab1293211688b2e823a16496db662)
 
 ### Отправка писем на указанную почту
 Любое письмо созданное в gulp-letters можно отправить но почту, прописав команду `gulp send -n test` .
