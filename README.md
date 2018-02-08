@@ -86,7 +86,7 @@ Building of a letter is made via command `gulp build -n <filename>`.
 2. Converts outcome file in .js and gives it a name set in p. Creation of basic .pug and .sass;
 3. Creates dist/ folder & puts generated .js file there.
 
-### clean / remove
+### Clean / remove
 `gulp clean` – to clean "dist" folder
 `gulp remove -n test` – to delete all the files named "test" from every folder having gulp-letters installed.
 
