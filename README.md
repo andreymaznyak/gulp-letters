@@ -93,9 +93,9 @@ Building of a letter is made via command `gulp build -n <filename>`.
 - - - -
 
 ## Installation
-1. Create project folder with the structure
-src/
-↳ sass/
+1. Create project folder with the structure  
+src/  
+↳ sass/  
 2. Go to folder's root and run command  `yarn init`
 3. In folder's root run command `touch gulpfile.js` 
 4. Open gulpfile.js and put:
@@ -165,10 +165,10 @@ Using an example file named "test".
 
 #### Folders structure for project
 
-src – development
+src – development  
 ↳ sass
 
-dev - files for page making check on local server (html + css)
+dev - files for page making check on local server (html + css)  
 ↳ css
 
 dist – converted files for subsequent use (js — styles inline)
