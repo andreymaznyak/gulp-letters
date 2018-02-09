@@ -1,3 +1,5 @@
+![](https://2.downloader.disk.yandex.ru/disk/07e9cdb99ffe84afe991a61348521da891081c5aabb69f99de9f8753a2529a17/5a7d593f/2ARVim4y-a6CucIAG6v67Gi-OKT5fM9DW7bAE-olLvsV72tP2pNaFD2O7gMbnnXNvkE9iOGY5fyP9nMyNtaeFA%3D%3D?uid=0&filename=tech.gif&disposition=inline&hash=&limit=0&content_type=image%2Fgif&fsize=7692&hid=fd05178706fdc9247609f586b3980e34&media_type=image&tknv=v2&etag=cfbe908160c5bb6576039ecb0a604a83)
+
 # Gulp Letters
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/andreymaznyak/gulp-letters.svg)](https://greenkeeper.io/)
@@ -8,6 +10,8 @@
 
 
 The library for fast and convenient letters development.
+
+![](https://2.downloader.disk.yandex.ru/disk/07e9cdb99ffe84afe991a61348521da891081c5aabb69f99de9f8753a2529a17/5a7d593f/2ARVim4y-a6CucIAG6v67Gi-OKT5fM9DW7bAE-olLvsV72tP2pNaFD2O7gMbnnXNvkE9iOGY5fyP9nMyNtaeFA%3D%3D?uid=0&filename=tech.gif&disposition=inline&hash=&limit=0&content_type=image%2Fgif&fsize=7692&hid=fd05178706fdc9247609f586b3980e34&media_type=image&tknv=v2&etag=cfbe908160c5bb6576039ecb0a604a83)
 
 - - - -
 
