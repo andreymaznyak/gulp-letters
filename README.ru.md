@@ -1,6 +1,8 @@
 # Gulp Letters
 Библиотека для верстки и тестирования писем.
 
+![](https://1.downloader.disk.yandex.ru/disk/c7b83dfe3c2834f277755ed7649ef5d66e4c54ca7d0d31ddcd96bb8d98e4e1f5/5a7d5b32/2ARVim4y-a6CucIAG6v67PqiVxYHMmPlQD97OL0P-VOM-TxmY2tJl86So4nNXfaXWNO3nBPnjfEkbmn0H1WF1g%3D%3D?uid=0&filename=gulp-letters.gif&disposition=inline&hash=&limit=0&content_type=image%2Fgif&fsize=8359&hid=b974a4dcbad93ccdc1b8c2355cc5d363&media_type=image&tknv=v2&etag=a8cf1d11e845f2f9142c4973cf1981a8)
+
 \* Read this in other languages: [English](README.md), [Русский](README.ru.md)
 
 - - - -
