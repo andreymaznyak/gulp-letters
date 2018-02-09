@@ -167,5 +167,8 @@ dev - файлы для проверки на локальном сервере 
 
 dist – собранные файлы для размещения (JS — стили инлайн)
 
+#### Node.js 8.0
+Для работы gulp-letters требуется [Node.js 8.0.0](https://nodejs.org/en/) (и выше).
+
 #### Gulp 4.0
-Для работы gulp-letters требуется gulp 4.0.0 (и выше).
+Для работы gulp-letters требуется [Gulp 4.0.0](https://www.npmjs.com/package/gulp-4.0.build) (и выше).
