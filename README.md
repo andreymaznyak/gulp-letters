@@ -31,7 +31,7 @@ It allows to develop several letters at once calling them by filename.
 
 Input: `gulp <command> -n <filename>`  to point the gulp file you need to apply a command.
 
-For example, you created a letter named "code". By entering `gulp serve -n code` → gulp opens the letter "code" in browser and starts to track changes in code.pug and code.sass. After you save code.pug and code.sass – gulp will automatically update a tab with opened "code" letter in browser.
+For example, you created a letter named *code*. By entering `gulp serve -n code` → gulp opens the letter "code" in browser and starts to track changes in code.pug and code.sass. After you save code.pug and code.sass – gulp will automatically update a tab with opened *code* letter in browser.
 
 ### Creation of basic .pug and .sass
 To start page making of a letter you need to create basic .pug file and .sass styles file. This is done by command: 
@@ -96,8 +96,8 @@ Building of a letter is made via command `gulp build -n <filename>`.
 1. Create project folder with the structure  
 src/  
 ↳ sass/  
-2. Go to folder's root and run command  `yarn init`
-3. In folder's root run command `touch gulpfile.js` 
+2. Go to folder's root and run command `npm init`, if you use yarn, then `yarn init` ;
+3. In folder's root run command `touch gulpfile.js` ; 
 4. Open gulpfile.js and put:
 ```
 const gulp = require('gulp');
@@ -134,7 +134,7 @@ registerTasks({ smtpOptions }, [
 // define default gulp task
 gulp.task('default', gulp.series(['build']));
 ```
-5. Run command `yarn add gulp-letters -D`
+5. Run command `npm install --save-dev gulp-letters`, if you use yarn, then `yarn add --save-dev gulp-letters`
 
 Gulp-letters library is ready.  To perform functionality check  run command `gulp new -n test` and then `gulp serve -n test` → result: test letter with text ::Hello letter test:: will open in browser.
 
@@ -156,7 +156,7 @@ Using an example file named "test".
 `gulp send -n test` – sends a letter named "test" on email set in mail-config.json.
 
 #### clean / remove
-`gulp clean` – cleans "dist" folder
+`gulp clean` – cleans "dist" folder  
 `gulp remove -n test` – deletes all the files named "test" from every folder having gulp-letters installed.
 
 - - - -
@@ -171,7 +171,11 @@ src – development
 dev - files for page making check on local server (html + css)  
 ↳ css
 
-dist – converted files for subsequent use (js — styles inline)
+dist – converted files for subsequent use (JS — styles inline)
+
+#### Node.js 8.0.0
+[Node.js 8.0.0](https://nodejs.org/en/) (or later) required for gulp-letters to work.
 
 #### Gulp 4.0
-gulp 4.0.0 (or later) required for gulp-letters to work.
+[Gulp 4.0.0](https://www.npmjs.com/package/gulp-4.0.build) (or later) required for gulp-letters to work.
+
