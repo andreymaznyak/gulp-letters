@@ -1,7 +1,7 @@
 # Gulp Letters
 Библиотека для верстки и тестирования писем.
 
-\* Read this in other languages: [English](README.md), [Русский](README.ru.md),
+\* Read this in other languages: [English](README.md), [Русский](README.ru.md)
 
 - - - -
 
