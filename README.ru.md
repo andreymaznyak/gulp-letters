@@ -90,7 +90,7 @@ subjects: {
 1. Создайте папку проекта со структурой  
 src/  
 ↳ sass/  
-2. Перейдите в корень папки и выполните команду `npm init` или, если вы используеьте yarn, `yarn init`;
+2. Перейдите в корень папки и выполните команду `npm init` или, если вы используете yarn, `yarn init`;
 3. В корне папки выполните команду `touch gulpfile.js`;
 4. Откройте gulpfile.js и поместите в него:
 ```
@@ -128,7 +128,7 @@ registerTasks({ smtpOptions }, [
 // define default gulp task
 gulp.task('default', gulp.series(['build']));
 ```
-5. Выполните команду `npm install --save-dev gulp-letters` или, если вы используеьте yarn, `yarn add gulp-letters -D`
+5. Выполните команду `npm install --save-dev gulp-letters` или, если вы используете yarn, `yarn add gulp-letters -D`
 
 Gulp-letters библиотека готова к работе.  Для проверки работоспособности — выполните команду `gulp new -n test` и далее `gulp serve -n test` → результат: в браузере откроется тестовое письмо с надписью ::Hello letter test::.
 
