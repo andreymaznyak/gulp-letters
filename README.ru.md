@@ -5,6 +5,8 @@
 
 - - - -
 
+![](https://2.downloader.disk.yandex.ru/disk/07e9cdb99ffe84afe991a61348521da891081c5aabb69f99de9f8753a2529a17/5a7d593f/2ARVim4y-a6CucIAG6v67Gi-OKT5fM9DW7bAE-olLvsV72tP2pNaFD2O7gMbnnXNvkE9iOGY5fyP9nMyNtaeFA%3D%3D?uid=0&filename=tech.gif&disposition=inline&hash=&limit=0&content_type=image%2Fgif&fsize=7692&hid=fd05178706fdc9247609f586b3980e34&media_type=image&tknv=v2&etag=cfbe908160c5bb6576039ecb0a604a83)
+
 ## Что такое Gulp Letters / What is Gulp Letters
 Основная задача библиотеки gulp-letters – это свести всю верстку писем к работе с двумя базовыми файлами .pug (разметка) и .sass (стили).  
 Live Preview в браузере, отправка писем на почту, конвертация файлов в html и css, вставка стилей в файл разметки и сборка готового письма  — все это сделает gulp-letters автоматически.
