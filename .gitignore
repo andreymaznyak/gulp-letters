@@ -4,3 +4,4 @@ test/dev
 .nyc_output/
 coverage.lcov
 coverage/
+.DS_Store
