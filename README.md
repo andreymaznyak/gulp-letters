@@ -11,7 +11,7 @@
 
 The library for page making and testing of letters using Gulp, Pug, Sass и BrowserSync.
 
-![](https://github.com/andreymaznyak/gulp-letters/blob/master/doc/img/tech.gif)
+![](https://raw.githubusercontent.com/andreymaznyak/gulp-letters/master/doc/img/tech.gif)
 
 - - - -
 
