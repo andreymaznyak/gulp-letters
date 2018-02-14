@@ -1,4 +1,4 @@
-![](https://github.com/andreymaznyak/gulp-letters/blob/master/doc/img/gulp-letters.gif)
+![](https://raw.githubusercontent.com/andreymaznyak/gulp-letters/master/doc/img/gulp-letters.gif)
 
 # Gulp Letters
 
@@ -41,7 +41,7 @@ For example, you created a letter named *code*. By entering `gulp serve -n code`
 To start page making of a letter you need to create basic .pug file and .sass styles file. This is done by command: 
 `gulp new -n <filename>`. 
 
-![](https://github.com/andreymaznyak/gulp-letters/blob/master/doc/img/2018-02-07%2015.32.43.gif)
+![](https://raw.githubusercontent.com/andreymaznyak/gulp-letters/master/doc/img/2018-02-07%2015.32.43.gif)
 
 ### Live Preview in browser while saving changes in .pug or .sass
 To begin reviewing page made letter in browser you need to run command `gulp serve -n <имя файла>`. Live preview in browser implemented via BrowserSync library.
@@ -49,7 +49,7 @@ To begin reviewing page made letter in browser you need to run command `gulp ser
 #### Conversion of .pug and .sass to html and css
 Upon entering the command  `gulp serve -n <filename>`  gulp-letters automatically creates dev/ folder & puts converted from .pug and .sass to .html and .css files there.
 
-![](https://github.com/andreymaznyak/gulp-letters/blob/master/doc/img/2018-02-07%2015.53.21.gif)
+![](https://raw.githubusercontent.com/andreymaznyak/gulp-letters/master/doc/img/2018-02-07%2015.53.21.gif)
 
 ### Sending emails
 Any letter created in gulp-letters can be sent via command `gulp send -n test` .

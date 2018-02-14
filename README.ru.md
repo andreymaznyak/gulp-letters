@@ -1,9 +1,9 @@
-![](https://github.com/andreymaznyak/gulp-letters/blob/master/doc/img/gulp-letters.gif)
+![](https://raw.githubusercontent.com/andreymaznyak/gulp-letters/master/doc/img/gulp-letters.gif)
 
 # Gulp Letters
 Библиотека для верстки и тестирования писем с использованием Gulp, Pug, Sass и BrowserSync.
 
-![](https://github.com/andreymaznyak/gulp-letters/blob/master/doc/img/tech.gif)
+![](https://raw.githubusercontent.com/andreymaznyak/gulp-letters/master/doc/img/tech.gif)
 
 
 \* Read this in other languages: [English](README.md), [Русский](README.ru.md)
@@ -37,7 +37,7 @@ Live Preview в браузере, отправка писем на почту, �
 Для старта верстки писем необходимо создать файл базовый .pug файл и файл со стилями .sass. Это выполняется одной командой: 
 `gulp new -n <имя файла>`. 
 
-![](https://github.com/andreymaznyak/gulp-letters/blob/master/doc/img/2018-02-07%2015.32.43.gif)
+![](https://raw.githubusercontent.com/andreymaznyak/gulp-letters/master/doc/img/2018-02-07%2015.32.43.gif)
 
 ### Live Preview в браузере при сохранении изменений в .pug или .sass
 Для старта превью сверстанного письма в браузере нужно выполнить команду `gulp serve -n <имя файла>`. Для реализации live preview используется библиотека BrowserSync.
@@ -45,7 +45,7 @@ Live Preview в браузере, отправка писем на почту, �
 #### Конвертация .pug и .sass в html и css
 При использовании команды  `gulp serve -n <имя файла>`  gulp-letters автоматически создаст папку dev/ и положит в нее конвертированные из .pug и .sass и файлы .html и .css.
 
-![](https://github.com/andreymaznyak/gulp-letters/blob/master/doc/img/2018-02-07%2015.53.21.gif)
+![](https://raw.githubusercontent.com/andreymaznyak/gulp-letters/master/doc/img/2018-02-07%2015.53.21.gif)
 
 ### Отправка писем на указанную почту
 Любое письмо созданное в gulp-letters можно отправить но почту, прописав команду `gulp send -n test` .
