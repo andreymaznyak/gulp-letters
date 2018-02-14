@@ -1,6 +1,6 @@
 {
   "name": "gulp-letters",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Gulp tasks for easy letter styling development",
   "main": "index.js",
   "directories": {
