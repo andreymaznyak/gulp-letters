@@ -28,6 +28,7 @@ Live Preview in browser, emails sending, files conversion to html and css, style
 ### Working with files by name
 
 > Filename is **central identifier** in work with gulp-letters.  
+> To do smt with letter, you must call it by name.
 >   
 > Create the new file via command `gulp new -n <filename>`  and then use <filename> in every operation:  sending email, opening in browser, making build, deleting → all by gulp command simply pointing this filename.  
 
