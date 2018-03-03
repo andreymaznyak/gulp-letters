@@ -76,9 +76,12 @@ tap.test(`after call 'build' task`, async t => {
       const stylePath = join(__dirname, 'dev', 'css', letterName + '.css');
       const styleExist = await exists(stylePath);
       t.ok(styleExist, `${letterName} style should be compiled`);
-      const modulePath = join(__dirname, 'dist', letterName + '.js');
-      const moduleExist = await exists(modulePath);
-      t.ok(moduleExist, `${letterName} module should be compiled`);
+      const jsModulePath = join(__dirname, 'dist', letterName + '.js');
+      const jsModuleExist = await exists(jsModulePath);
+      t.ok(jsModuleExist, `${letterName} js module should be compiled`);
+      const phpModulePath = join(__dirname, 'dist', letterName + '.php');
+      const phpModuleExist = await exists(phpModulePath);
+      t.ok(phpModuleExist, `${letterName} php module should be compiled`);
     })
   );
 });
@@ -95,9 +98,12 @@ tap.test(`after call 'send' task`, async t => {
       const stylePath = join(__dirname, 'dev', 'css', letterName + '.css');
       const styleExist = await exists(stylePath);
       t.ok(styleExist, `${letterName} style should be compiled`);
-      const modulePath = join(__dirname, 'dist', letterName + '.js');
-      const moduleExist = await exists(modulePath);
-      t.ok(moduleExist, `${letterName} module should be compiled`);
+      const jsModulePath = join(__dirname, 'dist', letterName + '.js');
+      const jsModuleExist = await exists(jsModulePath);
+      t.ok(jsModuleExist, `${letterName} js module should be compiled`)
+      const phpModulePath = join(__dirname, 'dist', letterName + '.php');
+      const phpModuleExist = await exists(phpModulePath);
+      t.ok(phpModuleExist, `${letterName} php module should be compiled`);
     })
   );
   const length = smtp.getMails().length;
@@ -115,9 +121,12 @@ tap.test(`after call 'clean' task`, async t => {
       const stylePath = join(__dirname, 'dev', 'css', letterName + '.css');
       const styleExist = await exists(stylePath);
       t.notOk(styleExist, `${letterName} style should be removed`);
-      const modulePath = join(__dirname, 'dist', letterName + '.js');
-      const moduleExist = await exists(modulePath);
-      t.notOk(moduleExist, `${letterName} module should be removed`);
+      const jsModulePath = join(__dirname, 'dist', letterName + '.js');
+      const jsModuleExist = await exists(jsModulePath);
+      t.notOk(jsModuleExist, `${letterName} js module should be removed`);
+      const phpModulePath = join(__dirname, 'dist', letterName + '.php');
+      const phpModuleExist = await exists(phpModulePath);
+      t.notOk(phpModuleExist, `${letterName} php module should be removed`);
     })
   );
 });
@@ -132,9 +141,12 @@ tap.test(`after call 'build' task without -n param`, async t => {
       const stylePath = join(__dirname, 'dev', 'css', letterName + '.css');
       const styleExist = await exists(stylePath);
       t.ok(styleExist, `${letterName} style should be compiled`);
-      const modulePath = join(__dirname, 'dist', letterName + '.js');
-      const moduleExist = await exists(modulePath);
-      t.ok(moduleExist, `${letterName} module should be compiled`);
+      const jsModulePath = join(__dirname, 'dist', letterName + '.js');
+      const jsModuleExist = await exists(jsModulePath);
+      t.ok(jsModuleExist, `${letterName} js module should be compiled`);
+      const phpModulePath = join(__dirname, 'dist', letterName + '.php');
+      const phpModuleExist = await exists(phpModulePath);
+      t.ok(phpModuleExist, `${letterName} php module should be compiled`);
     }),
     async () => {
       const templatePath = join(__dirname, 'dev', 'example-letter.html');
@@ -158,9 +170,12 @@ tap.test(`after call 'clean' task without -n param`, async t => {
       const stylePath = join(__dirname, 'dev', 'css', letterName + '.css');
       const styleExist = await exists(stylePath);
       t.notOk(styleExist, `${letterName} style should be removed`);
-      const modulePath = join(__dirname, 'dist', letterName + '.js');
-      const moduleExist = await exists(modulePath);
-      t.notOk(moduleExist, `${letterName} module should be removed`);
+      const jsModulePath = join(__dirname, 'dist', letterName + '.js');
+      const jsModuleExist = await exists(jsModulePath);
+      t.notOk(jsModuleExist, `${letterName} js module should be removed`);
+      const phpModulePath = join(__dirname, 'dist', letterName + '.php');
+      const phpModuleExist = await exists(phpModulePath);
+      t.notOk(phpModuleExist, `${letterName} php module should be removed`);
     })
   );
 });
