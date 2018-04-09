@@ -35,7 +35,7 @@
     "gulp-ext-replace": "^0.3.0",
     "gulp-inline-css": "^3.1.2",
     "gulp-pug": "^4.0.0",
-    "gulp-sass": "^3.1.0",
+    "gulp-sass": "^4.0.0",
     "maildev": "^1.0.0-rc3",
     "nodemailer": "^4.4.2"
   },
