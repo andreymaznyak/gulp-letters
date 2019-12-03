@@ -184,3 +184,6 @@ dist – converted files for subsequent use (JS — styles inline)
 #### Gulp 4.0
 [Gulp 4.0.0](https://www.npmjs.com/package/gulp-4.0.build) (or later) required for gulp-letters to work.
 
+## ROADMAP
+* migrate to mjml
+* using pug
