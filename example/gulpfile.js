@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 // include default tasks registrator
-var registerTasks = require('gulp-letters').registerTasks;
+var registerTasks = require('../').registerTasks;
 // define smtp config
 var smtpOptions = {
   // nodemailer smtp settings
