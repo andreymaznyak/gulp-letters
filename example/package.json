@@ -5,6 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp serve -n example-letter",
+    "build": "gulp build -n example-letter",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

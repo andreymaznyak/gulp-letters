@@ -37,6 +37,7 @@
     "gulp-mjml": "^4.0.2",
     "gulp-pug": "^4.0.0",
     "gulp-sass": "^4.0.2",
+    "inline-css": "^2.5.1",
     "maildev": "^1.0.0-rc3",
     "mjml": "^4.5.1",
     "nodemailer": "^4.4.2"

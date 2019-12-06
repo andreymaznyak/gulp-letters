@@ -8,6 +8,11 @@ registerTasks(
     smtpOptions,
     browserSync: {
       open: false
+    },
+    params: {
+      "example-letter": {
+        testKey: 'hello world'
+      }
     }
   },
   ['new', 'serve', 'build', 'send', 'clean', 'remove']
