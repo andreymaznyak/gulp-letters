@@ -1,6 +1,6 @@
 {
   "name": "gulp-letters",
-  "version": "3.0.0-rc.0",
+  "version": "3.0.0-rc.1",
   "description": "Gulp tasks for easy letter styling development",
   "main": "index.js",
   "directories": {
@@ -34,13 +34,12 @@
     "del": "^3.0.0",
     "gulp": "4.0.1",
     "gulp-ext-replace": "^0.3.0",
-    "gulp-mjml": "^4.0.2",
-    "gulp-pug": "^4.0.0",
     "gulp-sass": "^4.0.2",
     "inline-css": "^2.5.1",
     "maildev": "^1.0.0-rc3",
     "mjml": "^4.5.1",
-    "nodemailer": "^4.4.2"
+    "nodemailer": "^4.4.2",
+    "pug": "^2.0.4"
   },
   "devDependencies": {
     "codecov": "^3.0.0",

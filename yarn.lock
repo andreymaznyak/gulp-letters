@@ -193,11 +193,6 @@
   resolved "https://registry.yarnpkg.com/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
   integrity sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
 
-"@types/pug@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@types/pug/-/pug-2.0.4.tgz#8772fcd0418e3cd2cc171555d73007415051f4b2"
-  integrity sha1-h3L80EGOPNLMFxVV1zAHQVBR9LI=
-
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -2971,28 +2966,6 @@ gulp-ext-replace@^0.3.0:
   dependencies:
     through2 "~2.0.1"
 
-gulp-mjml@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/gulp-mjml/-/gulp-mjml-4.0.2.tgz#090b14cd88d577a3f2be9f07d7161e1e5a4198bf"
-  integrity sha512-7VcTQquhNHdiqu3XIfHd0/4v9owZt3hkvXXo7fBgnFxnYL5/p6+rJGcjCBfljjQKwXKWXvil7bUibqUTFEOz2Q==
-  dependencies:
-    mjml "^4.0.0"
-    plugin-error "^1.0.1"
-    replace-ext "^1.0.0"
-    through2 "^3.0.1"
-
-gulp-pug@^4.0.0:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/gulp-pug/-/gulp-pug-4.0.1.tgz#5c5bb38303a5a565add8b200e292b4a076cf2efa"
-  integrity sha512-RsayLPwJtKKMub9bbO4VYlMPVnImUPdK8+BjvkiulkorrjWnahTbI3a3Li/7YkD0xs7ap7ePciNiPwweoVEPMQ==
-  dependencies:
-    "@types/pug" "^2.0.4"
-    fancy-log "^1.3.2"
-    plugin-error "^1.0.1"
-    pug "^2.0.3"
-    replace-ext "^1.0.0"
-    through2 "^2.0.3"
-
 gulp-sass@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/gulp-sass/-/gulp-sass-4.0.2.tgz#cfb1e3eff2bd9852431c7ce87f43880807d8d505"
@@ -4888,7 +4861,7 @@ mjml-wrapper@4.5.1:
     mjml-core "4.5.1"
     mjml-section "4.5.1"
 
-mjml@^4.0.0, mjml@^4.5.1:
+mjml@^4.5.1:
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/mjml/-/mjml-4.5.1.tgz#44201d731e9f426f528fa7d39e8d0a666816257c"
   integrity sha512-sQVbQ30UwxMpjzkTPdU9RD5OC9ikEjtZEY+zqAioHXAtEmiO0L0eUdfpcb0ni1pu09hMWU4iqRtOyxLgZIOThg==
@@ -5944,7 +5917,7 @@ pug-walk@^1.1.8:
   resolved "https://registry.yarnpkg.com/pug-walk/-/pug-walk-1.1.8.tgz#b408f67f27912f8c21da2f45b7230c4bd2a5ea7a"
   integrity sha512-GMu3M5nUL3fju4/egXwZO0XLi6fW/K3T3VTgFQ14GxNi8btlxgT5qZL//JwZFm/2Fa64J/PNS8AZeys3wiMkVA==
 
-pug@^2.0.3:
+pug@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pug/-/pug-2.0.4.tgz#ee7682ec0a60494b38d48a88f05f3b0ac931377d"
   integrity sha512-XhoaDlvi6NIzL49nu094R2NA6P37ijtgMDuWE+ofekDChvfKnzFal60bhSdiy8y2PBO6fmz3oMEIcfpBVRUdvw==
@@ -6130,7 +6103,7 @@ readable-stream@2, readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stre
     string_decoder "~1.1.1"
     util-deprecate "~1.0.1"
 
-"readable-stream@2 || 3", readable-stream@^3.1.1, readable-stream@^3.4.0:
+readable-stream@^3.1.1, readable-stream@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-3.4.0.tgz#a51c26754658e0a3c21dbf59163bd45ba6f447fc"
   integrity sha512-jItXPLmrSR8jmTRmRWJXCnGJsfy85mB3Wd/uINMXA65yrnFo0cPClFIUWzo2najVNSl+mx7/4W8ttlLWJe99pQ==
@@ -7377,13 +7350,6 @@ through2@^2.0.0, through2@^2.0.3, through2@~2.0.0, through2@~2.0.1:
   dependencies:
     readable-stream "~2.3.6"
     xtend "~4.0.1"
-
-through2@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/through2/-/through2-3.0.1.tgz#39276e713c3302edf9e388dd9c812dd3b825bd5a"
-  integrity sha512-M96dvTalPT3YbYLaKaCuwu+j06D/8Jfib0o/PxbVt6Amhv3dUAtW6rTV1jPgJSBG83I/e04Y6xkVdVhSRhi0ww==
-  dependencies:
-    readable-stream "2 || 3"
 
 thunkify@^2.1.2:
   version "2.1.2"
