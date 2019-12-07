@@ -101,6 +101,7 @@ Building of a letter is made via command `gulp build -n <filename>`.
 1. Create project folder with the structure  
 src/  
 ↳ sass/  
+run command `mkdir -p your-letters-project/src/sass && cd your-letters-project`
 2. Go to folder's root and run command `npm init`, if you use yarn, then `yarn init` ;
 3. In folder's root run command `touch gulpfile.js` ; 
 4. Open gulpfile.js and put:

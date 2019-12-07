@@ -96,7 +96,8 @@ subjects: {
 ## Установка
 1. Создайте папку проекта со структурой  
 src/  
-↳ sass/  
+↳ sass/
+выполните команду: `mkdir -p your-letters-project/src/sass && cd your-letters-project`
 2. Перейдите в корень папки и выполните команду `npm init` или, если вы используете yarn, `yarn init`;
 3. В корне папки выполните команду `touch gulpfile.js`;
 4. Откройте gulpfile.js и поместите в него:
