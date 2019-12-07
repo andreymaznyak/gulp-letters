@@ -6,4 +6,3 @@ coverage.lcov
 coverage/
 .DS_Store
 example/dev
-example/dist

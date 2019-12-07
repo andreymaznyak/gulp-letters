@@ -20,12 +20,18 @@ var smtpOptions = {
   params: {
     "example-letter": {
       "mjml": true,
+      "verbose": true,
       "users": [
         "user 1",
         "user 2",
         "user 3",
         "user 4"
       ]
+    },
+    "example-inline-css": {
+      "verbose": true,
+      "inlineCss": true,
+      "inlineCssUrl": "http://example.com"
     }
   } // define letters params
 };
