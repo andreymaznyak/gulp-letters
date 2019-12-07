@@ -12,6 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "gulp-letters": "3.0.0-rc.3"
+    "gulp-letters": "3.0.0-rc.4"
   }
 }
