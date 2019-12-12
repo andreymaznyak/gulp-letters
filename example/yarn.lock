@@ -2225,10 +2225,10 @@ gulp-ext-replace@^0.3.0:
   dependencies:
     through2 "~2.0.1"
 
-gulp-letters@3.0.0-rc.2:
-  version "3.0.0-rc.2"
-  resolved "https://registry.yarnpkg.com/gulp-letters/-/gulp-letters-3.0.0-rc.2.tgz#f688452db6b858e20908b99808c8df6cbdc04d71"
-  integrity sha512-1tq7ND9/SSko7APu85fhUXv6qU+NKTYYNKxYW5YagPpN9Q8M706zSSmh1UV+mNf0PBqNXZJVgXxlDGIhhSOgvw==
+gulp-letters@3.0.0-rc.6:
+  version "3.0.0-rc.6"
+  resolved "https://registry.yarnpkg.com/gulp-letters/-/gulp-letters-3.0.0-rc.6.tgz#293788a100ed96c3b52df1cead50693b6de8605d"
+  integrity sha512-B1ZVcysqo3Z0q6nwnUlRu700GBbikD3WlFur5wsZMUp9fFkEvpuh5yRa4+t5Cs0/7338ggdhGX6KWf1ypBCnwA==
   dependencies:
     browser-sync "^2.23.6"
     del "^3.0.0"
