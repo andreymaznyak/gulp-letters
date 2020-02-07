@@ -40,7 +40,7 @@
     "nodemailer": "^4.4.2"
   },
   "devDependencies": {
-    "codecov": "^3.0.0",
+    "codecov": "^3.6.5",
     "nyc": "^11.4.1",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
